@@ -44,4 +44,5 @@ public class Cita {
     @Enumerated(EnumType.STRING)
     @Column(name = "estadocita", nullable = false)
     private EstadoCita estadocita = EstadoCita.PENDIENTE;
+
 } 
