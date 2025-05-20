@@ -3,7 +3,7 @@ package com.citas.dto;
 public class ClienteDTO {
 
     private Long id;
-    private String nombre;
+    private String nombres;
     private String correo;
 
     public Long getId() {
@@ -14,12 +14,12 @@ public class ClienteDTO {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getCorreo() {

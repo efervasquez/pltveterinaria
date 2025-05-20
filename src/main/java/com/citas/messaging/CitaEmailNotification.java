@@ -4,6 +4,7 @@ import com.citas.dto.ClienteDTO;
 import com.citas.model.Cita;
 import java.io.Serializable;
 import java.util.Objects;
+import java.time.format.DateTimeFormatter;
 
 public class CitaEmailNotification implements Serializable {
     private String to;
@@ -31,7 +32,11 @@ public class CitaEmailNotification implements Serializable {
     public static CitaEmailNotification fromCita(Cita cita , ClienteDTO cliente) {
         String to = cliente.getCorreo();
         String subject = "Confirmacion de cita veterinaria!";
-        String body = "Hola " + cliente.getNombre() + ", tu cita ha sido registrada exitosamente para el dia" + cita.getFecha() ;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a"); // 12h + AM/PM
+        String horaFormateada = cita.getHorainicio().format(formatter);
+        String body = "Hola " + cliente.getNombres()
+                + ", tu cita ha sido registrada exitosamente para el día "
+                + cita.getFecha() + " a las " + horaFormateada;
         return new CitaEmailNotification(to, subject, body);
     }
 

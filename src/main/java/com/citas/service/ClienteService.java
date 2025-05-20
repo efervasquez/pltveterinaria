@@ -20,7 +20,7 @@ public class ClienteService {
 
     public String obtenerCorreoCliente(Long idCliente) {
         try {
-            String url = usuariosUrl + "/clientes/" + idCliente;
+            String url = usuariosUrl + "/usuario/" + idCliente;
             ClienteDTO cliente = restTemplate.getForObject(url, ClienteDTO.class);
             return cliente != null ? cliente.getCorreo() : null;
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class ClienteService {
 
     public ClienteDTO ListarxCodigo(Long idCliente) {
         try {
-            String url = usuariosUrl + "/clientes/" + idCliente;
+            String url = usuariosUrl + "/usuario/" + idCliente;
             ClienteDTO cliente = restTemplate.getForObject(url, ClienteDTO.class);
             return cliente;
         } catch (Exception e) {
